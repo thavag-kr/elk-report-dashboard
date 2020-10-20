@@ -9,4 +9,11 @@ Some sample report files and config files are provided.
 
 Also the docker compose uses a custom docker images that are hosted in scrsregistry. Docker files are provided
 
+You would need to have acccess to scrscontainer registry.
+
+Run 
+1. $ az login
+2. $ az acr login -n scrscontainerregistry
+
+
 To Execute: $docker-compose up -d
