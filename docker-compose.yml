@@ -1,0 +1,49 @@
+version: '3'
+
+# Launch: $ docker-compose up -d
+services:
+
+  elasticsearch:
+    container_name: elasticsearch
+    image: scrscontainerregistry.azurecr.io/scrs-elasticsearch:7.9.2
+    environment:
+      - discovery.type=single-node
+    networks:
+      - elastic
+    ports:
+      - 9200:9200
+      - 9300:9300
+
+  kibana:
+    container_name: kibana
+    image: scrscontainerregistry.azurecr.io/scrs-kibana:7.9.2
+    networks:
+      - elastic
+    ports:
+      - 5601:5601
+    depends_on:
+      - elasticsearch
+
+  logstash:
+    container_name: logstash
+    image: scrscontainerregistry.azurecr.io/scrs-logstash:7.9.2
+    working_dir: /etc/logstash
+    ports:
+      - 5000:5000/tcp
+      - 5000:5000/udp
+      - 9600:9600
+    volumes:
+      - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml:ro
+      - ./logstash/pipeline:/etc/logstash/conf.d:ro
+      - ./reports:/etc/logstash:ro
+    command: logstash -f /etc/logstash/conf.d/logstash.conf
+    environment:
+      LS_JAVA_OPTS: "-Xmx512m -Xms512m"
+    networks:
+      - elastic
+    depends_on:
+      - elasticsearch
+
+networks:
+  elastic:
+    {}
