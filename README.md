@@ -17,3 +17,5 @@ Run
 
 
 To Execute: $docker-compose up -d
+
+To view the data in kibana navigate to localhost:5601 or kibana:5601.
