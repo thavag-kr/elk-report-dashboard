@@ -17,6 +17,8 @@ services:
   kibana:
     container_name: kibana
     image: scrscontainerregistry.azurecr.io/scrs-kibana:7.9.2
+    environment:
+      ELASTICSEARCH_HOSTS: http://elasticsearch:9200/
     networks:
       - elastic
     ports:
