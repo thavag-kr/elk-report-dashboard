@@ -16,6 +16,10 @@ Run
 2. $ az acr login -n scrscontainerregistry
 
 
-To Execute: $docker-compose up -d
+To Execute elasticsearch and Kibana:
+    $docker-compose up -d kibana
+    
+To Start Logstash:
+    $docker-compose up -d logstash
 
 To view the data in kibana navigate to localhost:5601 or kibana:5601.
