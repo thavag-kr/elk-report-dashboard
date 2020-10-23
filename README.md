@@ -7,16 +7,19 @@ Visualization is done in Kibana dashboards.
 
 Some sample report files and config files are provided.
 
-Also the docker compose uses a custom docker images that are hosted in scrsregistry. Docker files are provided
-
+Also the docker compose uses a custom docker images that are hosted in scrsregistry. 
 You would need to have acccess to scrscontainer registry.
+
+
+Please use the Docker files if you need to create your own image, they are provided under each service folder.
+
 
 Run 
 1. $ az login
 2. $ az acr login -n scrscontainerregistry
 
 
-To Execute elasticsearch and Kibana:
+To Start elasticsearch and Kibana:
     $docker-compose up -d kibana
     
 To Start Logstash:
