@@ -20,5 +20,5 @@
 **/*.iws
 **/*.iml
 **/*.ipr
-/reports/json-old/
 /reports/conf.d/
+/reports/json-old-1/
