@@ -22,3 +22,4 @@
 **/*.ipr
 /reports/conf.d/
 /reports/json-old-1/
+/.env
