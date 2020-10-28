@@ -49,6 +49,7 @@ services:
       LS_JAVA_OPTS: "-Xmx512m -Xms512m"
       ES_USERNAME: ${ES_USERNAME}
       ES_PASSWORD: ${ES_PASSWORD}
+      ELASTICSEARCH_HOST: ${ELASTICSEARCH_HOST}
     networks:
       - elastic
 
