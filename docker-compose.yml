@@ -44,10 +44,11 @@ services:
       - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml:ro
       - ./logstash/pipeline:/etc/logstash/conf.d:ro
       - ./reports:/etc/logstash:ro
-      - ./logstash/config/logstash.keystore:/usr/share/logstash/config/logstash.keystore:ro
     command: logstash -f /etc/logstash/conf.d/logstash.conf
     environment:
       LS_JAVA_OPTS: "-Xmx512m -Xms512m"
+      ES_USERNAME: ${ES_USERNAME}
+      ES_PASSWORD: ${ES_PASSWORD}
     networks:
       - elastic
 
