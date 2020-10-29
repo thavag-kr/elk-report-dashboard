@@ -5,7 +5,7 @@ services:
 
   elasticsearch:
     container_name: elasticsearch
-    image: scrscontainerregistry.azurecr.io/scrs-elasticsearch:${elk_version}
+    image: es-thavag:${elk_version}
     ulimits:
       memlock:
         soft: -1
@@ -22,7 +22,7 @@ services:
 
   kibana:
     container_name: kibana
-    image: scrscontainerregistry.azurecr.io/scrs-kibana:${elk_version}
+    image: kibana-thavag:${elk_version}
     environment:
       ELASTICSEARCH_HOSTS: http://elasticsearch:9200/
     networks:
@@ -34,7 +34,7 @@ services:
 
   logstash:
     container_name: logstash
-    image: scrscontainerregistry.azurecr.io/scrs-logstash:${elk_version}
+    image: logstash-thavag:${elk_version}
     working_dir: /etc/logstash
     ports:
       - 5000:5000/tcp
