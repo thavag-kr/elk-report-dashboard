@@ -1,4 +1,4 @@
-# scrs-elk-reporting
+# elk-report-dashboard
 
 This repo will help in setting up a local elk reporting structure for publishing zerocode csv or json files.
 
@@ -7,16 +7,9 @@ Visualization is done in Kibana dashboards.
 
 Some sample report files and config files are provided.
 
-Also the docker compose uses a custom docker images that are hosted in scrsregistry. 
-You would need to have acccess to scrscontainer registry.
-
+Also the docker compose uses a custom docker images that are hosted in dockerhub. 
 
 Please use the Docker files if you need to create your own image, they are provided under each service folder.
-
-
-Run 
-1. $ az login
-2. $ az acr login -n scrscontainerregistry
 
 
 To Start elasticsearch and Kibana:
