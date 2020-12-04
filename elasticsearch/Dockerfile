@@ -1,3 +1,3 @@
 FROM docker.elastic.co/elasticsearch/elasticsearch:7.9.2
 
-ENV discovery.type=single-node ES_JAVA_OPTS="-Xmx2g -Xms2g"
+ENV discovery.type=single-node ES_JAVA_OPTS="-Xmx2g -Xms2g" ELASTIC_PASSWORD=${es_password} xpack.security.enabled=true
