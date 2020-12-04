@@ -32,26 +32,26 @@ services:
     depends_on:
       - elasticsearch
 
-  logstash:
-    container_name: logstash
-    image: thavganesh/logstash-thavag:${elk_version}
-    working_dir: /etc/logstash
-    ports:
-      - 5000:5000/tcp
-      - 5000:5000/udp
-      - 9600:9600
-    volumes:
-      - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml:ro
-      - ./logstash/pipeline:/etc/logstash/conf.d:ro
-      - ./reports:/etc/logstash:ro
-    command: logstash -f /etc/logstash/conf.d/logstash.conf
-    environment:
-      LS_JAVA_OPTS: "-Xmx512m -Xms512m"
-      ES_USERNAME: ${ES_USERNAME}
-      ES_PASSWORD: ${ES_PASSWORD}
-      ELASTICSEARCH_HOST: ${ELASTICSEARCH_HOST}
-    networks:
-      - elastic
+  # logstash:
+  #   container_name: logstash
+  #   image: thavganesh/logstash-thavag:${elk_version}
+  #   working_dir: /etc/logstash
+  #   ports:
+  #     - 5000:5000/tcp
+  #     - 5000:5000/udp
+  #     - 9600:9600
+  #   volumes:
+  #     - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml:ro
+  #     - ./logstash/pipeline:/etc/logstash/conf.d:ro
+  #     - ./reports:/etc/logstash:ro
+  #   command: logstash -f /etc/logstash/conf.d/logstash.conf
+  #   environment:
+  #     LS_JAVA_OPTS: "-Xmx512m -Xms512m"
+  #     ES_USERNAME: ${ES_USERNAME}
+  #     ES_PASSWORD: ${ES_PASSWORD}
+  #     ELASTICSEARCH_HOST: ${ELASTICSEARCH_HOST}
+  #   networks:
+  #     - elastic
 
 networks:
   elastic:
